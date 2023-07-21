@@ -1,8 +1,14 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.10;
 
-import "./ZoraNFTCreatorV1.sol";
+import "../lib/zora-drops-contracts/src/ZoraNFTCreatorV1.sol";
 import "./AgoraDroposalFactory.sol";
+
+/* 
+* @title AgoraDroposal
+* @dev This contract is used to create an Agora Droposal Edition
+* The Agora Droposal Edition is a Zora NFT Edition that is created using the Zora NFT Creator
+*/
 
 contract AgoraDroposal {
     ZoraNFTCreatorV1 public zoraNFTCreator;
@@ -14,7 +20,7 @@ contract AgoraDroposal {
         zoraNFTCreator = _zoraNFTCreator;
         agoraDroposalFactory = _agoraDroposalFactory;
 
-        // Define the sales configuration here
+        // setup the sales configuration for the Zora NFT Creator
         saleConfig = IERC721Drop.SalesConfiguration({
             publicSalePrice: 1 ether,
             maxSalePurchasePerAddress: 1,
